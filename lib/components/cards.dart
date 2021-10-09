@@ -83,7 +83,7 @@ class DockingBaysCards extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => DockingBayScreen(
                     dockingBay: dockingBay,
-                    driverName: "Mr John Doe",
+                    driverName: "Mr. John Doe",
                     carPlate: "SLV5891X",
                     readyAt: howMuchLonger,
                     latitude: 1.319793,

@@ -28,13 +28,12 @@ class DockingBayScreen extends StatefulWidget {
 }
 
 class _DockingBayScreenState extends State<DockingBayScreen> {
-  static const _initialCameraPosition =
-      CameraPosition(target: LatLng(1.3160029276658574, 103.632605413227), zoom: 14.5);
+  static const _initialCameraPosition = CameraPosition(
+      target: LatLng(1.319793,  103.67607), zoom: 14.5);
 
   late GoogleMapController _googleMapController;
   Set<Marker> markers = Set();
 
-  
   @override
   void dispose() {
     _googleMapController.dispose();
@@ -50,7 +49,11 @@ class _DockingBayScreenState extends State<DockingBayScreen> {
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text("Docking Bay " + widget.dockingBay, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15)),
+        title: Text("Docking Bay " + widget.dockingBay,
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 15)),
         centerTitle: true,
       ),
       body: Stack(children: [
@@ -59,8 +62,16 @@ class _DockingBayScreenState extends State<DockingBayScreen> {
           zoomControlsEnabled: false,
           initialCameraPosition: _initialCameraPosition,
           onMapCreated: (controller) => _googleMapController = controller,
-          markers: markers,
-          onLongPress: _addMarker,
+          markers: {
+            Marker(
+                markerId: const MarkerId('origin'),
+                infoWindow: const InfoWindow(title: 'Origin'),
+                // icon: BitmapDescriptor.defaultMarkerWithHue(
+                //     BitmapDescriptor.hueGreen),
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueRed),
+                position: LatLng(widget.latitude, widget.longitude))},
+          // onLongPress: _addMarker,
         ),
         Align(
             alignment: Alignment.bottomCenter,
@@ -97,27 +108,27 @@ class _DockingBayScreenState extends State<DockingBayScreen> {
     );
   }
 
-  void _addMarker(LatLng pos) {
-    if (markers.length == 0) {
-      setState(() {
-        markers.add(Marker(
-            markerId: const MarkerId('origin'),
-            infoWindow: const InfoWindow(title: 'Origin'),
-            icon: BitmapDescriptor.defaultMarkerWithHue(
-                BitmapDescriptor.hueGreen),
-            position: pos));
-        // _destination = null;
-      });
-    } else {
-      setState(() {
-        markers.add(Marker(
-            markerId: const MarkerId('destination'),
-            infoWindow: const InfoWindow(title: 'Destination'),
-            icon:
-                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-            position: pos));
-        // _destination = null;
-      });
-    }
-  }
+  // void _addMarker(LatLng pos) {
+  //   if (markers.length == 0) {
+  //     setState(() {
+  //       markers.add(Marker(
+  //           markerId: const MarkerId('origin'),
+  //           infoWindow: const InfoWindow(title: 'Origin'),
+  //           icon: BitmapDescriptor.defaultMarkerWithHue(
+  //               BitmapDescriptor.hueGreen),
+  //           position: pos));
+  //       // _destination = null;
+  //     });
+  //   } else {
+  //     setState(() {
+  //       markers.add(Marker(
+  //           markerId: const MarkerId('destination'),
+  //           infoWindow: const InfoWindow(title: 'Destination'),
+  //           icon:
+  //               BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+  //           position: pos));
+  //       // _destination = null;
+  //     });
+  //   }
+  // }
 }
