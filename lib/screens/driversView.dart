@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:hackathon/components/currentTask.dart';
+import 'package:hackathon/components/currentTaskDriverView.dart';
 
-class MapScreen extends StatefulWidget {
-  const MapScreen({Key? key}) : super(key: key);
+class DriversView extends StatefulWidget {
+  const DriversView({
+    Key? key,
+    required this.dockingBay,
+    required this.arrivalTime,
+    required this.warehouse,
+    required this.startTime,
+
+  }) : super(key: key);
+
+  final String dockingBay;
+  final String arrivalTime;
+  final String warehouse; 
+  final String startTime;
 
   @override
-  _MapScreenState createState() => _MapScreenState();
+  _DriversViewState createState() => _DriversViewState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _DriversViewState extends State<DriversView> {
   static const _initialCameraPosition =
-      CameraPosition(target: LatLng(1.3521, 103.8198), zoom: 12.5);
+      CameraPosition(target: LatLng(1.3521, 103.8198), zoom: 14.5);
 
   late GoogleMapController _googleMapController;
   Set<Marker> markers = Set();
@@ -26,11 +38,11 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.blue,
         foregroundColor: Colors.black,
         onPressed: () => _googleMapController.animateCamera(
             CameraUpdate.newCameraPosition(_initialCameraPosition)),
-        child: const Icon(Icons.center_focus_strong),
+        child: Text("3", style: TextStyle(fontSize: 25.0, color: Colors.white)),
       ),
       body: Stack(children: [
         GoogleMap(
@@ -53,11 +65,11 @@ class _MapScreenState extends State<MapScreen> {
                 bottom: 24.0,
                 top: 35.0,
               ),
-              child: CurrentTask(
-                  arrivalTime: "12:51PM",
-                  warehouse: "Gui Circle, Warehouse A",
-                  startTime: "12:33PM",
-                  dockingBay: "B"),
+              child: CurrentTaskDriverView(
+                  arrivalTime: widget.arrivalTime,
+                  warehouse: widget.warehouse,
+                  startTime: widget.startTime,
+                  dockingBay: widget.dockingBay),
             )),
       ]),
     );

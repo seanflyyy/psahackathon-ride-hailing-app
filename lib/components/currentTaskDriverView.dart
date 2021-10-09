@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CurrentTask extends StatelessWidget {
-  const CurrentTask({
+class CurrentTaskDriverView extends StatelessWidget {
+  const CurrentTaskDriverView({
     required this.arrivalTime,
     required this.warehouse,
     required this.startTime,

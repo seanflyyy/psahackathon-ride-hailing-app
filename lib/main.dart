@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon/screens/dockingBayScreen.dart';
 import 'package:hackathon/screens/homescreen.dart';
-import 'package:hackathon/screens/mapView.dart';
+import 'package:hackathon/screens/driversView.dart';
 void main() {
   runApp(MyApp());
 }
@@ -23,7 +24,16 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primaryColor: Colors.white,
       ),
-      home: GridHeader(),
+      home: GridHeader(warehouse: "A"),
+      // home: DockingBayScreen(
+      //               dockingBay: "A",
+      //               driverName: "Mr John",
+      //               carPlate: "SLV5891X",
+      //               readyAt: "12:00PM",
+      //               latitude: 1.319793,
+      //               longitude: 103.67607,
+      //               driverPhoneNumber: "90667568"),
+      // home: MapScreen(),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
