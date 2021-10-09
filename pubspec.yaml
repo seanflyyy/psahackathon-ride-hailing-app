@@ -31,6 +31,7 @@ dependencies:
   google_maps_flutter: ^2.0.11
   flutter_polyline_points: ^0.2.6
   dio: ^4.0.0
+  sticky_headers: ^0.2.0
   
 dev_dependencies:
   flutter_test:
