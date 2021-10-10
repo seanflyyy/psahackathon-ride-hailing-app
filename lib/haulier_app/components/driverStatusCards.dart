@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon/components/DockingBayCards.dart';
 import 'package:hackathon/haulier_app/screens/whatDriverDoingScreen.dart';
-import 'package:hackathon/warehouse_app/screens/dockingBayScreen.dart';
-import 'package:hackathon/warehouse_app/screens/driversView.dart';
-import 'package:hackathon/screens/warehouseScreen.dart';
 
 class DriverStatusCards extends StatelessWidget {
   const DriverStatusCards({
@@ -53,7 +49,7 @@ class DriverStatusCards extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
                               color: Colors.black)),
-                      SizedBox(height: 6),
+                      SizedBox(height: 4),
                       onTask
                           ? Text("On Task",
                               style:
@@ -62,7 +58,7 @@ class DriverStatusCards extends StatelessWidget {
                               style:
                                   TextStyle(fontSize: 12, color: Colors.black)),
                       // // Not Free
-                      SizedBox(height: 10),
+                      SizedBox(height: 8),
                       onTask
                           ? Text(
                               "Estimated completion at " + taskCompletionTime,

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon/components/DockingBayCards.dart';
-import 'package:hackathon/components/warehouseCards.dart';
 import 'package:hackathon/haulier_app/components/driverStatusCards.dart';
 import 'package:hackathon/haulier_app/screens/noTaskScreen.dart';
 import 'package:hackathon/haulier_app/screens/onTaskScreen.dart';

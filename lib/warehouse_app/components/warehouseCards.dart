@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon/components/DockingBayCards.dart';
+import 'package:hackathon/warehouse_app/components/DockingBayCards.dart';
 import 'package:hackathon/warehouse_app/screens/dockingBayScreen.dart';
 import 'package:hackathon/warehouse_app/screens/driversView.dart';
-import 'package:hackathon/screens/warehouseScreen.dart';
+import 'package:hackathon/warehouse_app/screens/warehouseScreen.dart';
 
 class WarehouseCards extends StatelessWidget {
   const WarehouseCards({
@@ -14,7 +14,6 @@ class WarehouseCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       child: Container(
           decoration: BoxDecoration(
