@@ -21,4 +21,3 @@ Application is divided into 3 main parts, a driver application, a haulier applic
 ## To run the application 
 - Simply ```git pull```
 - Followed by ```flutter run``` after opening the program in android emulator 
--
