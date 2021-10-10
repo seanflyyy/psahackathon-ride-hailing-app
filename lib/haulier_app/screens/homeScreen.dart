@@ -92,7 +92,7 @@ class _DriverStatusScreenState extends State<DriverStatusScreen> {
                           padding: EdgeInsets.fromLTRB(8.0, 0, 0, 0),
                           child: Container(
                             height: 40.0,
-                            color: Colors.white,
+                            color: Colors.transparent,
                             padding: new EdgeInsets.symmetric(horizontal: 12.0),
                             alignment: Alignment.centerLeft,
                             child: new Text(
