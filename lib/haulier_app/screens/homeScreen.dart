@@ -4,6 +4,7 @@ import 'package:hackathon/firebaseFuncs.dart';
 import 'package:hackathon/haulier_app/models/driverModel.dart';
 import 'package:hackathon/sometingWong.dart';
 import 'package:sticky_headers/sticky_headers.dart';
+import 'package:intl/intl.dart';
 
 class DriverStatusScreen extends StatefulWidget {
   const DriverStatusScreen({
@@ -40,18 +41,35 @@ class _DriverStatusScreenState extends State<DriverStatusScreen> {
             );
           else {
             var drivers = snapshot.data as List<Drivers>;
+
             var driversCards = [];
 
             drivers.forEach((element) {
-              driversCards.add(DriverStatusCards(
-                  driverName: element.driverName,
-                  taskCompletionTime: element.taskCompletionTime.toString(),
-                  onTask: element.onTask,
-                  phoneNumber: element.phoneNumber,
-                  task: "Deliver Container " +
-                      "C0001" +
-                      " to Warehouse " +
-                      element.warehouse));
+              if (element.companyName == 'x') { // filters out the companies correponding to x 
+                driversCards.add(DriverStatusCards(
+                    driverName: element.driverName,
+                    taskCompletionTime: (DateTime.parse(
+                                        element.taskCompletionTime.toString())
+                                    .hour %
+                                12)
+                            .toString() +
+                        ":" +
+                        DateTime.parse(element.taskCompletionTime.toString())
+                            .minute
+                            .toString() +
+                        (DateTime.parse(element.taskCompletionTime.toString())
+                                        .hour /
+                                    12 >
+                                0
+                            ? " PM"
+                            : " AM"),
+                    onTask: element.onTask,
+                    phoneNumber: element.phoneNumber,
+                    task: "Deliver Container " +
+                        "C0001" +
+                        " to Warehouse " +
+                        element.warehouse));
+              }
             });
 
             driversCards.forEach((element) {
@@ -61,6 +79,7 @@ class _DriverStatusScreenState extends State<DriverStatusScreen> {
                 listWidget[0].add(element);
               }
             });
+
 
             if (drivers.length == 0)
               return SomeTingWong(text: "Cannot load Drivers");
@@ -79,7 +98,7 @@ class _DriverStatusScreenState extends State<DriverStatusScreen> {
                             child: new Text(
                               listHeader[index],
                               style: TextStyle(
-                                  fontSize: 30, fontWeight: FontWeight.bold),
+                                  fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                           )),
                       content: Padding(

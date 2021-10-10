@@ -159,7 +159,7 @@ class GridHeader extends StatefulWidget {
 }
 
 class _GridHeaderState extends State<GridHeader> {
-  List<String> listHeader = ['Not Free', 'Free', 'Reserved'];
+  List<String> listHeader = ['Free', 'Not Free', 'Reserved'];
   List<List<Widget>> listWidget = [[], [], []];
 
   @override
@@ -204,7 +204,7 @@ class _GridHeaderState extends State<GridHeader> {
       itemBuilder: (context, index) {
         return new StickyHeader(
           header: new Padding(padding: EdgeInsets.fromLTRB(8.0, 0, 0, 0), child: Container(
-            height: 38.0,
+            height: 35.0,
             color: Colors.white,
             padding: new EdgeInsets.symmetric(horizontal: 12.0),
             alignment: Alignment.centerLeft,

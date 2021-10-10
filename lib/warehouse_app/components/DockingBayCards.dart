@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon/constants.dart';
 import 'package:hackathon/warehouse_app/screens/dockingBayScreen.dart';
-import 'package:hackathon/warehouse_app/screens/driversView.dart';
+import 'package:hackathon/driver_app/driversView.dart';
 
 class DockingBaysCards extends StatelessWidget {
   const DockingBaysCards({

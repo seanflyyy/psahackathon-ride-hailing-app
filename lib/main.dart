@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hackathon/haulier_app/screens/homeScreen.dart';
+import 'package:hackathon/mainpage.dart';
 import 'package:hackathon/screens/allWarehouseScreen.dart';
 
 
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
       // home: GridHeader(warehouse: "A"),
 
 
-      home: AllWarehouse(),
+      home: MainPage(),
+      // home: AllWarehouse(),
       // home: DriverStatusScreen(),
 
 

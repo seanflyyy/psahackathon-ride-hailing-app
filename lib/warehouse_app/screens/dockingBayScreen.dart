@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hackathon/firebaseFuncs.dart';
+import 'package:hackathon/haulier_app/models/driverModel.dart';
 import 'package:hackathon/warehouse_app/components/currentTaskDriverView.dart';
 import 'package:hackathon/warehouse_app/components/currentTaskWarehouseView.dart';
 
@@ -72,9 +73,12 @@ class _DockingBayScreenState extends State<DockingBayScreen> {
                   child: CircularProgressIndicator(),
                 );
               else {
-                var data = snapshot.data;
-                print(data);
+                print("hello thereeee");
+                print(snapshot.data);
+                var driverDeez = snapshot.data as List<Drivers>;
 
+                print("driver data is");
+                print(driverDeez);
                 return Stack(children: [
                   GoogleMap(
                     myLocationButtonEnabled: false,
@@ -109,10 +113,11 @@ class _DockingBayScreenState extends State<DockingBayScreen> {
                           child: Column(children: [
                             WarehouseCurrentTask(
                                 dockingBay: widget.dockingBay,
-                                driverName: " dsadsa ",
-                                carPlate: " s dsad ",
+                                driverName: driverDeez[0].driverName,
+                                carPlate: driverDeez[0].carPlate,
                                 readyAt: widget.readyAt,
-                                driverPhoneNumber: " sdadsad "),
+                                driverPhoneNumber:
+                                    driverDeez[0].phoneNumber.toString()),
                             SizedBox(height: 40),
                             ElevatedButton(
                                 style: ElevatedButton.styleFrom(

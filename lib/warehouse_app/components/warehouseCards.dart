@@ -4,7 +4,7 @@ import 'package:hackathon/haulier_app/components/containerCards.dart';
 import 'package:hackathon/sometingWong.dart';
 import 'package:hackathon/warehouse_app/components/DockingBayCards.dart';
 import 'package:hackathon/warehouse_app/screens/dockingBayScreen.dart';
-import 'package:hackathon/warehouse_app/screens/driversView.dart';
+import 'package:hackathon/driver_app/driversView.dart';
 import 'package:hackathon/warehouse_app/screens/warehouseScreen.dart';
 import 'package:hackathon/warehouse_app/warehouseModel.dart';
 
@@ -32,6 +32,9 @@ class WarehouseCards extends StatelessWidget {
             var containerCards = [];
 
             containers.forEach((element) {
+              // print(element.arrivalTime);
+              // print((DateTime.parse(element.arrivalTime.toString()).hour % 12)
+              //                 .toString());
               containerCards.add(DockingBaysCards(
                   driverID: element.driverID,
                   availability: element.availability == 'free'
@@ -39,11 +42,21 @@ class WarehouseCards extends StatelessWidget {
                       : element.availability == 'notFree'
                           ? "Not Free"
                           : "Reserved",
-                  dockingBay:
-                      element.loadingBay,
+                  dockingBay: element.loadingBay,
                   latitude: element.latitude.toDouble(),
                   longitude: element.longitude.toDouble(),
-                  howMuchLonger: element.arrivalTime.toString(),
+                  howMuchLonger:
+                      (DateTime.parse(element.arrivalTime.toString()).hour % 12)
+                              .toString() +
+                          ":" +
+                          DateTime.parse(element.arrivalTime.toString())
+                              .minute
+                              .toString() +
+                          (DateTime.parse(element.arrivalTime.toString()).hour /
+                                      12 >
+                                  0
+                              ? " PM"
+                              : " AM"),
                   warehouse: warehouse));
             });
 

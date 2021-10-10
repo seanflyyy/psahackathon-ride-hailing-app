@@ -10,7 +10,7 @@ class Warehouse {
       required this.longitude});
 
   late String loadingBay;
-  late num arrivalTime;
+  late var arrivalTime;
   late String availability;
   late bool currentlyLoading;
   late String driverID;
@@ -19,7 +19,7 @@ class Warehouse {
 
   Warehouse.fromJson(Map<String, dynamic> json, id) {
     loadingBay = id;
-    arrivalTime = json['arrivalTime'];
+    arrivalTime = DateTime.fromMicrosecondsSinceEpoch(json['arrivalTime'].seconds * 1000);
     availability = json['availability'];
     currentlyLoading = json['currentlyLoading'];
     driverID = json['driverID'];

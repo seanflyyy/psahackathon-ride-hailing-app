@@ -9,24 +9,38 @@ class DriversView extends StatefulWidget {
     required this.arrivalTime,
     required this.warehouse,
     required this.startTime,
-
+    required this.latitude,
+    required this.longitude,
+    required this.destinationLatitude,
+    required this.destinationLongitude,
   }) : super(key: key);
 
   final String dockingBay;
   final String arrivalTime;
-  final String warehouse; 
+  final String warehouse;
   final String startTime;
+  final num latitude;
+  final num longitude;
+  final num destinationLatitude;
+  final num destinationLongitude;
 
   @override
   _DriversViewState createState() => _DriversViewState();
 }
 
 class _DriversViewState extends State<DriversView> {
-  static const _initialCameraPosition =
-      CameraPosition(target: LatLng(1.3521, 103.8198), zoom: 14.5);
-
   late GoogleMapController _googleMapController;
   Set<Marker> markers = Set();
+
+  var _initialCameraPosition;
+  @override
+  void initState() {
+    super.initState();
+    _initialCameraPosition = CameraPosition(
+        target: LatLng(widget.latitude.toDouble(), widget.longitude.toDouble()),
+        zoom: 14.5);
+    setState(() {});
+  }
 
   @override
   void dispose() {
@@ -50,7 +64,22 @@ class _DriversViewState extends State<DriversView> {
           zoomControlsEnabled: false,
           initialCameraPosition: _initialCameraPosition,
           onMapCreated: (controller) => _googleMapController = controller,
-          markers: markers,
+          markers: {
+            Marker(
+                markerId: const MarkerId('origin'),
+                infoWindow: const InfoWindow(title: 'Origin'),
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueAzure),
+                position: LatLng(
+                    widget.latitude.toDouble(), widget.longitude.toDouble())),
+            Marker(
+                markerId: const MarkerId('origin'),
+                infoWindow: const InfoWindow(title: 'Origin'),
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueRed),
+                position: LatLng(widget.destinationLatitude.toDouble(),
+                    widget.destinationLongitude.toDouble()))
+          },
           onLongPress: _addMarker,
         ),
         Align(

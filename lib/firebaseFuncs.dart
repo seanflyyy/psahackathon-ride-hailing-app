@@ -5,15 +5,9 @@ import 'package:hackathon/warehouse_app/warehouseModel.dart';
 
 Future<List<Drivers>> getListOfDrivers() async {
   var drivers = new List<Drivers>.empty(growable: true);
-  var driversRef = FirebaseFirestore.instance
-      .collection('hauliers')
-      .doc('x')
-      .collection('drivers')
-      .orderBy('arrivalTime', descending: false);
+  var driversRef = FirebaseFirestore.instance.collection('hauliers');
   var snapshot = await driversRef.get();
   snapshot.docs.forEach((element) {
-    // print("data added is");
-    // print(element.data());
     drivers.add(Drivers.fromJson(element.data(), element.id));
   });
   return drivers;
@@ -43,16 +37,24 @@ getListOfContainers(whichWarehouse) async {
 
 getDriverDetails(driverID) async {
   var warehousess = new List<Warehouse>.empty(growable: true);
-  var list_of_hauliers =
-      await FirebaseFirestore.instance.collection('hauliers').get();
-  var driver;
+  var list_of_hauliers = await FirebaseFirestore.instance
+      .collection('hauliers')
+      .where('id', isEqualTo: driverID)
+      .get();
+  var drivers = new List<Drivers>.empty(growable: true);
 
+  // print(list_of_hauliers.docs.forEach((element) {
+  //   print(element.data());
+  // }));
   list_of_hauliers.docs.forEach((element) {
-    print("data is dfsfdsf");
-    print(element.data());
+    // print("element data is ");
+    // print(element.data());
+    // driver = element.data();
+    drivers.add(Drivers.fromJson(element.data(), element.id));
+
   });
 
-  return driver;
+  return drivers;
 }
 
 // getContainer(uid) async {
