@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:hackathon/components/currentTaskDriverView.dart';
+import 'package:hackathon/warehouse_app/components/currentTaskDriverView.dart';
 
 class DriversView extends StatefulWidget {
   const DriversView({

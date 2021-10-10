@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon/driver_app/screens/homeScreen.dart';
 import 'package:hackathon/screens/allWarehouseScreen.dart';
-import 'package:hackathon/screens/dockingBayScreen.dart';
-import 'package:hackathon/screens/warehouseScreen.dart';
-import 'package:hackathon/screens/driversView.dart';
+
+
 void main() {
   runApp(MyApp());
 }
@@ -26,7 +26,8 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.white,
       ),
       // home: GridHeader(warehouse: "A"),
-      home: AllWarehouse(),
+      // home: AllWarehouse(),
+      home: DriverStatusScreen(),
       // home: DockingBayScreen(
       //               dockingBay: "A",
       //               driverName: "Mr John",

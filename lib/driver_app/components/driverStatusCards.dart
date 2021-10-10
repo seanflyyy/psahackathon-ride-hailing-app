@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon/components/DockingBayCards.dart';
+import 'package:hackathon/driver_app/screens/whatDriverDoingScreen.dart';
 import 'package:hackathon/warehouse_app/screens/dockingBayScreen.dart';
 import 'package:hackathon/warehouse_app/screens/driversView.dart';
 import 'package:hackathon/screens/warehouseScreen.dart';
 
-class DriverStatusScreen extends StatelessWidget {
-  const DriverStatusScreen({
-    required this.warehouse,
-    required this.freeLots,
+class DriverStatusCards extends StatelessWidget {
+  const DriverStatusCards({
+    required this.driverName,
+    required this.taskCompletionTime,
+    required this.onTask,
+    required this.phoneNumber,
+    required this.task,
   });
-  final num freeLots;
-  final String warehouse;
+  final String taskCompletionTime;
+  final String driverName;
+  final bool onTask;
+  final num phoneNumber;
+  final task;
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +39,7 @@ class DriverStatusScreen extends StatelessWidget {
             Flexible(
                 flex: 1,
                 child: Container(
-                  color: freeLots > 6
-                      ? Colors.green[400]
-                      : freeLots == 0
-                          ? Colors.pink[300]
-                          : Colors.orange[300],
-                )),
+                    color: onTask ? Colors.pink[300] : Colors.green[400])),
             Flexible(
                 flex: 20,
                 child: Padding(
@@ -46,17 +48,29 @@ class DriverStatusScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Warehouse " + warehouse,
+                      Text(driverName,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
                               color: Colors.black)),
                       SizedBox(height: 6),
-                      Text(freeLots.toString() + " free lots",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                              color: Colors.black)), // Not Free
+                      onTask
+                          ? Text("On Task",
+                              style:
+                                  TextStyle(fontSize: 12, color: Colors.black))
+                          : Text("Currently Free",
+                              style:
+                                  TextStyle(fontSize: 12, color: Colors.black)),
+                      // // Not Free
+                      SizedBox(height: 10),
+                      onTask
+                          ? Text(
+                              "Estimated completion at " + taskCompletionTime,
+                              style:
+                                  TextStyle(fontSize: 12, color: Colors.grey))
+                          : Text("No tasks allocated",
+                              style:
+                                  TextStyle(fontSize: 12, color: Colors.grey)),
                     ],
                   ),
                 ))
@@ -65,47 +79,13 @@ class DriverStatusScreen extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => GridHeader(warehouse: warehouse, listOfLB: [
-                  DockingBaysCards(
-                          availability: "Free",
-                          dockingBay: "1",
-                          howMuchLonger: "Free",
-                          warehouse: warehouse),
-                      DockingBaysCards(
-                          availability: "Reserved",
-                          dockingBay: "2",
-                          howMuchLonger: "12:55PM",
-                          warehouse: warehouse),
-                      DockingBaysCards(
-                          availability: "Not Free",
-                          dockingBay: "3",
-                          howMuchLonger: "1:13PM",
-                          warehouse: warehouse),
-                      DockingBaysCards(
-                          availability: "Free",
-                          dockingBay: "4",
-                          howMuchLonger: "Free",
-                          warehouse: warehouse),
-                      DockingBaysCards(
-                          availability: "Free",
-                          dockingBay: "5",
-                          howMuchLonger: "Free",
-                          warehouse: warehouse),
-                      DockingBaysCards(
-                          availability: "Reserved",
-                          dockingBay: "6",
-                          howMuchLonger: "8:35PM",
-                          warehouse: warehouse),
-                      DockingBaysCards(
-                          availability: "Free",
-                          dockingBay: "7",
-                          howMuchLonger: "1:13 AM",
-                          warehouse: warehouse),
-                      DockingBaysCards(
-                          availability: "Reserved",
-                          dockingBay: "8",
-                          howMuchLonger: "4:32AM",
-                          warehouse: warehouse)],)));
+                builder: (context) => WhatDriverDoingScreen(
+                    dockingBay: "A",
+                    driverName: driverName,
+                    phoneNumber: phoneNumber,
+                    isThereTask: onTask,
+                    task: task,
+                    readyAt: taskCompletionTime)));
       },
     );
   }
