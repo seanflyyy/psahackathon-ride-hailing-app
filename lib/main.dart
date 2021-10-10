@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon/screens/allWarehouseScreen.dart';
 import 'package:hackathon/screens/dockingBayScreen.dart';
-import 'package:hackathon/screens/homescreen.dart';
+import 'package:hackathon/screens/warehouseScreen.dart';
 import 'package:hackathon/screens/driversView.dart';
 void main() {
   runApp(MyApp());
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primaryColor: Colors.white,
       ),
-      home: GridHeader(warehouse: "A"),
+      // home: GridHeader(warehouse: "A"),
+      home: AllWarehouse(),
       // home: DockingBayScreen(
       //               dockingBay: "A",
       //               driverName: "Mr John",
