@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon/driver_app/screens/homeScreen.dart';
+import 'package:hackathon/haulier_app/screens/homeScreen.dart';
 import 'package:hackathon/screens/allWarehouseScreen.dart';
 
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon/components/DockingBayCards.dart';
 import 'package:hackathon/components/warehouseCards.dart';
-import 'package:hackathon/driver_app/components/driverStatusCards.dart';
+import 'package:hackathon/haulier_app/components/driverStatusCards.dart';
 import 'package:hackathon/firebaseFuncs.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 

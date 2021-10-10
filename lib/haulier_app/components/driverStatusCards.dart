@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackathon/components/DockingBayCards.dart';
-import 'package:hackathon/driver_app/screens/whatDriverDoingScreen.dart';
+import 'package:hackathon/haulier_app/screens/whatDriverDoingScreen.dart';
 import 'package:hackathon/warehouse_app/screens/dockingBayScreen.dart';
 import 'package:hackathon/warehouse_app/screens/driversView.dart';
 import 'package:hackathon/screens/warehouseScreen.dart';

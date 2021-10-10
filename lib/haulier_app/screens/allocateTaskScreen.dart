@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon/driver_app/components/containerCards.dart';
+import 'package:hackathon/haulier_app/components/containerCards.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AllocateTaskScreen extends StatefulWidget {

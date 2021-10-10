@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:hackathon/driver_app/components/driverCurrentTask.dart';
+import 'package:hackathon/haulier_app/components/driverCurrentTask.dart';
 import 'package:hackathon/warehouse_app/components/currentTaskDriverView.dart';
 import 'package:hackathon/warehouse_app/components/currentTaskWarehouseView.dart';
 import 'package:url_launcher/url_launcher.dart';
