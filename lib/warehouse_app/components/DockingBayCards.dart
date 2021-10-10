@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon/screens/dockingBayScreen.dart';
-import 'package:hackathon/screens/driversView.dart';
+import 'package:hackathon/warehouse_app/screens/dockingBayScreen.dart';
+import 'package:hackathon/warehouse_app/screens/driversView.dart';
 
 class DockingBaysCards extends StatelessWidget {
   const DockingBaysCards({

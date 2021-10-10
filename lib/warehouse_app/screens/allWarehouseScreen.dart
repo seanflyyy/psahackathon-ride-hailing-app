@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon/components/cards.dart';
+import 'package:hackathon/components/DockingBayCards.dart';
 import 'package:hackathon/components/warehouseCards.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 
@@ -54,7 +54,7 @@ class _AllWarehouseState extends State<AllWarehouse> {
                     crossAxisCount: 1,
                     childAspectRatio: 3.7,
                     children: [
-                      WarehouseCards(warehouse: "A", freeLots: 6),
+                      WarehouseCards(warehouse: "A", freeLots: 6,),
                       WarehouseCards(warehouse: "B", freeLots: 12),
                       WarehouseCards(warehouse: "C", freeLots: 0),
                       WarehouseCards(warehouse: "D", freeLots: 2),

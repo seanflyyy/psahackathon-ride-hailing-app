@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hackathon/.env.dart';
-import 'package:hackathon/components/directions.dart';
+import 'package:hackathon/warehouse_app/components/directions.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class DirectionsRepository {
