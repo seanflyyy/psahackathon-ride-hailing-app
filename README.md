@@ -1,19 +1,24 @@
-# hackathon
+# psahackathon Application 
 
-A new Flutter project.
+## Description 
+Application was developed during psahackathon CodeSprint 2021.
+https://www.psacodesprint.com/
 
-## Getting Started
+Application focuses on tackling issue involving inefficencies in allocation of hauliers due to a lack of visbility over which loading bays in one of 5 warehouses is empty at any point in time. 
 
-This project is a starting point for a Flutter application.
+Application is divided into 3 main parts, a driver application, a haulier application and finally a warehouse application, each of these apps serving a particular purpose, similar to that of a delivery application where there is a user, the deliverman and the restaurant(merchant).
 
-A few resources to get you started if this is your first Flutter project:
+### Driver Application 
+- Through the driver application, the driver is able to view their current task along with any up and coming tasks allocated to them by the haulier company. 
+- This enables them to do away with the need of figuring out their schedule and wasting time waiting around until the loading bay is empty. 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Haulier Application 
+- The haulier is able to monitor the current status of the drivers through this application and allocate containers in real-time to the drivers. 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Warehouse Application 
+- The warehouse application is able to monitor all of the loading bays in every single warehouse, and free or reserve particular loading bays. 
 
-
-flutter run --no-sound-null-safety.# psahackathon
+## To run the application 
+- Simply ```git pull```
+- Followed by ```flutter run``` after opening the program in android emulator 
+-
