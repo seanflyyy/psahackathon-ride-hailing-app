@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:hackathon/constants.dart';
 import 'package:hackathon/warehouse_app/screens/dockingBayScreen.dart';
 import 'package:hackathon/warehouse_app/screens/driversView.dart';
 
 class DockingBaysCards extends StatelessWidget {
   const DockingBaysCards({
+    required this.driverID,
     required this.availability,
     required this.dockingBay,
     required this.howMuchLonger,
     required this.warehouse,
+    required this.latitude,
+    required this.longitude,
   });
+  final String driverID;
   final String availability;
   final String dockingBay;
   final String howMuchLonger;
   final String warehouse;
+  final double latitude;
+  final double longitude;
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +46,11 @@ class DockingBaysCards extends StatelessWidget {
             Flexible(
                 flex: 1,
                 child: Container(
-                  color: availability == 'Free'
-                      ? Colors.green[400]
-                      : availability == 'Reserved'
-                          ? Colors.orange[300]
-                          : Colors.pink[300],
-                )),
+                    color: availability == 'Free'
+                        ? freeColor
+                        : availability == 'Reserved'
+                            ? notFreeColor
+                            : reservedColor)),
             Flexible(
                 flex: 17,
                 child: Padding(
@@ -83,12 +89,14 @@ class DockingBaysCards extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => DockingBayScreen(
                     dockingBay: dockingBay,
-                    driverName: "Mr. John Doe",
-                    carPlate: "SLV5891X",
+                    driverID: driverID,
+                    // driverName: driverID,
+                    // carPlate: "SLV5891X",
                     readyAt: howMuchLonger,
-                    latitude: 1.319793,
-                    longitude: 103.67607,
-                    driverPhoneNumber: "90667568")));
+                    latitude: latitude,
+                    longitude: longitude,
+                    // driverPhoneNumber: "90667568"
+                    )));
       },
     );
   }
